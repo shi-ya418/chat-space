@@ -50,7 +50,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|||null: false|
 ### Association
 - belongs_to :user
 - belongs_to :group
