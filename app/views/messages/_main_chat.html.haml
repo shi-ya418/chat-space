@@ -1,0 +1,37 @@
+.Main-chat 
+  .Main-chat__group-info
+    .top-items
+      .top-items__name 
+        .top-items__name__group test
+        .top-items__name__member Member : masa
+      .top-items__icon
+        = link_to "#", class: "edit" do
+          Edit
+  .Main-chat__message-list
+    .message
+      .message-info
+        .message-info__name
+          masa
+        .message-info__date
+          2019/11/20(wed) 17:43:34
+      .message-text
+        おはよう
+    .message
+      .message-info
+        .message-info__name
+          masa
+        .message-info__date
+          2019/11/20(wed) 17:43:34
+      .message-text
+        おはよう
+  .Main-chat__form
+    = form_with do |form|
+      .form
+        .form-box
+          = form.text_field :text, placeholder: "type a message", :class => "text"
+        
+          %label{class: "image-icon"}
+            = icon('far', 'image')
+            %input{type: "file", class: "file"}
+        = form.submit "Send", class: "send"
+    
