@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="MessageBox">
+        `<div class="MessageBox" data-message-id=${message.id}>
           <div class="MessageInfo">
             <div class="MessageInfo__userName">
               ${message.user_name}
@@ -21,7 +21,7 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="MessageBox">
+      `<div class="MessageBox" data-message-id=${message.id}>
         <div class="MessageInfo">
           <div class="MessageInfo__userName">
             ${message.user_name}
@@ -40,7 +40,7 @@ $(function(){
     };
   }
 
-  $('.form').on('submit', function(e){
+  $('.Form').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
@@ -54,13 +54,14 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.MessageField').append(html);
-      $('form')[0].reset();
+      $('.MessageField').append(html);      
+      $('Form')[0].reset();
       $('.MessageField').animate({ scrollTop: $('.MessageField')[0].scrollHeight});
-      $('.send').prop("disabled", false);
+      $('.Form__submit').prop("disabled", false);
     })
-    .fail(function(){
-      alert("メッセージの送信に失敗しました");
-    })
+    .fail(function() {
+      alert("メッセージ送信に失敗しました");
+      $('.Form__submit').prop("disabled", false);
+    });
   });
 });

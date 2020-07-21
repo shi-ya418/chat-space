@@ -18,11 +18,11 @@
     = render @messages
 
   .Footer
-    = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
         = f.text_field :content, class:'Form__inputContent', placeholder: 'type a message'
         = f.label :image, class: 'image-icon' do
           = icon('far', 'image')
           = f.file_field :image, class: 'file'
-      = f.submit "Send", class: "send"
+      = f.submit "Send", class: "Form__submit"
 

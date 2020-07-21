@@ -38,6 +38,7 @@
         }
     }    
     .Header__groupList {
+      overflow: scroll;
       background-color: #2f3e51;
       height: calc(100vh - 100px);
       padding: 0 20px;
@@ -135,7 +136,7 @@
     .Footer{
       background-color: #d2d2d2;
       height: 90px;
-      .form {
+      .Form {
         display: flex;
         padding: 20px 40px;
         .Form__contents {
@@ -157,7 +158,7 @@
             }
           }
         }
-        .send {
+        .Form__submit {
           background-color: #38aef0;
           color: #fff;
           font-size: 16px;
